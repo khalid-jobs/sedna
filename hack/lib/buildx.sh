@@ -74,6 +74,7 @@ sedna::buildx::build-multi-platform-images() {
     echo "building ${PLATFORMS} image for ${component}"
 
     sedna::buildx:generate-dockerfile build/${component}/Dockerfile > ${temp_dockerfile}
+    cat ${temp_dockerfile}
 
     for arch in ${arch_array[@]}; do
       dest_tar=${OUT_IMAGESPATH}/${component}-${IMAGE_TAG}-${arch////-}.tar
