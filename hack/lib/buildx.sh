@@ -51,6 +51,7 @@ sedna::buildx::push-multi-platform-images() {
 
     temp_dockerfile=build/${component}/buildx_dockerfile
     sedna::buildx:generate-dockerfile build/${component}/Dockerfile > ${temp_dockerfile}
+    cat ${temp_dockerfile}
 
     docker buildx build --push \
       --build-arg GO_LDFLAGS=${GO_LDFLAGS} \
